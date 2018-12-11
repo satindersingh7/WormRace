@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="WormRaceInWPF.Worm"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Height="75.821"  
+             >
+    <UserControl.Resources>
+        <Storyboard x:Key="mybody1" AutoReverse="True" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="ellipse">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="-1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="ellipse">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="-13"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="ellipse1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="ellipse1">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="-13"/>
+            </DoubleAnimationUsingKeyFrames>            
+        </Storyboard>
+    </UserControl.Resources>
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource mybody1}"/>            
+        </EventTrigger>
+    </UserControl.Triggers>
+    <Grid>
+        <Border x:Name="border" BorderThickness="1" Margin="12,18,0,0" HorizontalAlignment="Left" Width="152" RenderTransformOrigin="0.5,0.5">
+            <Border.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Border.RenderTransform>
+            <Canvas>
+                <Ellipse x:Name="ellipse3" Fill="#FF00FFA7" Height="31" Stroke="Black" Width="35" Canvas.Top="24" Canvas.Left="4"/>
+                <Ellipse x:Name="ellipse" Fill="#FF00FFA7" Height="31" Stroke="Black" Width="35" Canvas.Top="24" Canvas.Left="40" RenderTransformOrigin="0.5,0.5">
+                    <Ellipse.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Ellipse.RenderTransform>
+                </Ellipse>
+                <Ellipse x:Name="ellipse1" Fill="#FF00FFA7" Height="31" Stroke="Black" Width="35" Canvas.Top="24" Canvas.Left="75" RenderTransformOrigin="0.5,0.5">
+                    <Ellipse.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Ellipse.RenderTransform>
+                </Ellipse>
+                <Ellipse x:Name="ellipse4" Fill="#FF00FFA7" Height="31" Stroke="Black" Width="35" Canvas.Top="24" Canvas.Left="110"/>
+                <Ellipse Fill="Black" Height="6" Canvas.Left="128" Stroke="Black" Canvas.Top="30" Width="7"/>
+            </Canvas>
+        </Border>
+        <Ellipse Fill="Black" Stroke="Black" Margin="141,62,16,8"/>
+    </Grid>
+</UserControl>

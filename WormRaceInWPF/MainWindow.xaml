@@ -1,0 +1,47 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:WormRaceInWPF"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" x:Class="WormRaceInWPF.MainWindow"
+        Title="Worm Race Project"  WindowStartupLocation="CenterScreen" Background="LightBlue" Height="750" Width="950"
+        ResizeMode="NoResize">
+    <Grid x:Name="GameGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Canvas Grid.Row="1">
+            <local:Worm x:Name="YellowWorm" WormColor="Yellow"  MouseEnter="worm1_MouseEnter_1" MouseLeave="worm1_MouseLeave_1" MouseLeftButtonDown="worm1_MouseLeftButtonDown_1" Height="76" Canvas.Top="1"/>
+        </Canvas>
+        <Canvas Grid.Row="2">
+            <local:Worm x:Name="RedWorm" WormColor="Red" MouseEnter="worm1_MouseEnter_1" MouseLeave="worm1_MouseLeave_1" MouseLeftButtonDown="worm1_MouseLeftButtonDown_1" Height="76" Canvas.Top="1"/>
+        </Canvas>
+        <Canvas Grid.Row="3">
+            <local:Worm x:Name="WoodWorm" WormColor="BurlyWood" MouseEnter="worm1_MouseEnter_1" MouseLeave="worm1_MouseLeave_1" MouseLeftButtonDown="worm1_MouseLeftButtonDown_1"/>
+        </Canvas>
+        <Canvas Grid.Row="4">
+            <local:Worm x:Name="GreenWorm" MouseEnter="worm1_MouseEnter_1" MouseLeave="worm1_MouseLeave_1" MouseLeftButtonDown="worm1_MouseLeftButtonDown_1"/>
+        </Canvas>
+        <TextBox x:Name="textBox1" Foreground="DarkMagenta" Margin="0,0,0,10" FontSize="18" FontFamily="Consolas"  Background="LightGray" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <RadioButton x:Name="bets1" Content="Joe" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Checked="bets1_Checked" GroupName="Beters" IsChecked="True"/>
+        <RadioButton x:Name="bets2" Content="Bob" HorizontalAlignment="Left" Margin="10,33,0,0" VerticalAlignment="Top" Checked="bets1_Checked" GroupName="Beters"/>
+        <RadioButton x:Name="bets3" Content="Al" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top" Checked="bets1_Checked" GroupName="Beters"/>
+        <Label x:Name="betsMesage" Content="Max bet is : $" Background="LightCoral" HorizontalAlignment="Left" Margin="105,46,0,0" VerticalAlignment="Top" Width="116" Height="24"/>
+        <Button x:Name="buttonConfirm" Background="LawnGreen"  Content="Confirm" HorizontalAlignment="Left" Margin="282,10,0,0" VerticalAlignment="Top" Width="60" Click="buttonConfirm_Click" Height="60"/>
+        <Canvas x:Name="CanvasAfterSelection" HorizontalAlignment="Left" Height="110" Margin="94,0,0,0" VerticalAlignment="Top" Width="840" >
+            <Button x:Name="Start"  Content="Start" HorizontalAlignment="Left" Margin="737,20,0,0" VerticalAlignment="Top" Width="60" Click="Button_Click_1" Height="60"/>
+            <Label x:Name="BetrName" Content="Bets $" Canvas.Left="10" Canvas.Top="10" Background="LightGreen" />
+            <Label x:Name="BetrSelection" Content="On Worm" Canvas.Left="173" Canvas.Top="51" Visibility="Hidden"/>
+
+            <xctk:IntegerUpDown x:Name="betdoller" Canvas.Left="57" Canvas.Top="16" Increment="1" Minimum="0" IsEnabled="False" ValueChanged="betdoller_ValueChanged"/>
+            <xctk:IntegerUpDown x:Name="beton" Canvas.Left="239" Canvas.Top="57" Increment="1" Value="0" Maximum="4" Minimum="1" ValueChanged="beton_ValueChanged" Visibility="Hidden"/>
+            <Label x:Name="FirstBet"  Background="AliceBlue" Canvas.Left="309" Canvas.Top="7" Width="210"/>
+            <Label x:Name="SecondBet" Background="AliceBlue" Canvas.Left="309" Canvas.Top="39" Width="210"/>
+            <Label x:Name="ThirdBet"  Background="AliceBlue" Canvas.Left="309" Canvas.Top="70" Width="210"/>
+        </Canvas>
+    </Grid>
+</Window>
